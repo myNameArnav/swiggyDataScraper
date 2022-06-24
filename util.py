@@ -37,3 +37,32 @@ def twelveTo24(hour, minute, amORpm):
         return [finalHour, finalMin]
     else:
         return "Invalid Time Format"
+
+
+def find(html, className):
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(html)
+    temp = soup.find_all(class_=className)
+    return temp
+
+
+def findStripAndReplace(html, className, replaceText):
+    from bs4 import BeautifulSoup
+
+    result = []
+    soup = BeautifulSoup(html)
+    temp = soup.find_all(class_=className)
+    j = 0
+    for i in temp:
+        result.append((i.text).strip())
+        result[j] = result[j].replace(replaceText, " ")
+        j = j + 1
+    return result
+
+
+def splitArray(arr, splitStr):
+    final = []
+    for i in range(len(arr)):
+        final.append(arr[i].split(splitStr))
+    return final
