@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
-from util import twelveTo24, numMonth2strMonth
+from util import twelveTo24, numMonth2strMonth, findStripAndReplace, splitArray
 import datetime
 
-with open("copyData2.html") as f:
+with open("arnavData.html") as f:
     html = f.read()
 
 
@@ -54,7 +54,6 @@ for d in oNumber:
 # * ORDER #1147986806
 
 # ? Order Date, Time
-orderDT = []
 orderDTemp = []
 orderDateTime = []
 oDateTime = []
@@ -76,13 +75,55 @@ for i in range(len(orderDTemp)):
     oDateTime.append(x)
 
 # print(oDateTime)
-print(len(oDateTime))
+# print(len(oDateTime))
 
 # ? Delivery Date, Time
+delDate = []
+deliveryDT = []
+deliveryDateTime = []
+dDateTemp = soup.find_all(class_="_2fkm7")
+
+j = 0
+for temp in dDateTemp:
+    delDate.append((temp.text).strip())
+    delDate[j] = delDate[j].replace(
+        "\n                                                                    ", " "
+    )
+    j = j + 1
+
+for d in range(len(delDate)):
+    deliveryDT.append((delDate[d].split(" ")))
+
+for a in range(len(delDate)):
+    dORc = deliveryDT[a][0]
+    year = int(deliveryDT[a][5][:-1])
+    month = numMonth2strMonth(deliveryDT[a][3])
+    day = int(deliveryDT[a][4][:-1])
+    hour, minute = twelveTo24(
+        int(deliveryDT[a][6][:-3]), int(deliveryDT[a][6][3:]), deliveryDT[a][-1]
+    )
+    dt = datetime.datetime(year, month, day, hour, minute)
+    deliveryDateTime.append([dORc, dt])
+
+# print(len(deliveryDateTime))
+
 # ? Items Ordered
+orders = []
+iOrders = []
+itemsOrdered = []
+
+# ordersTemp = soup.find_all(class_ = "nRCg_")
+iOrders = splitArray(
+    findStripAndReplace(
+        html, "nRCg_", "\n                                                            "
+    ),
+    ",",
+)
+print(iOrders)
+
+
+# print(splitArray(iOrders, ","))
+
+# print(ordersTemp)
 # ? Items Detailed
 # ? Total Paid
-# print(rName)
-
-
-# print(rName[1].text)
