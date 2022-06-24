@@ -64,7 +64,11 @@ for orderDT in orderDTemp:
     orderDateTime.append((orderDTemp[orderDTemp.index(orderDT)].split(" ")))
 
 for i in range(len(orderDTemp)):
-    hour, minute = twelveTo24(int(orderDateTime[i][7][:-3]),int(orderDateTime[i][7][3:]),str(orderDateTime[i][-1]))
+    hour, minute = twelveTo24(
+        int(orderDateTime[i][7][:-3]),
+        int(orderDateTime[i][7][3:]),
+        str(orderDateTime[i][-1]),
+    )
     year = int(orderDateTime[i][6][:-1])
     month = numMonth2strMonth(orderDateTime[i][4])
     day = int(orderDateTime[i][5][:-1])
