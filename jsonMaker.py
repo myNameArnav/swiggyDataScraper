@@ -1,8 +1,11 @@
 from parse import parse
 import json
 
+
 def jsonMaker(html):
-    rName, rPlace, oNumber, oDateTime, dDateTime, orders, totalAmount = parse(html+".html")
+    rName, rPlace, oNumber, oDateTime, dDateTime, orders, totalAmount = parse(
+        html + ".html"
+    )
     main = []
 
     for i in range(len(rName)):
@@ -30,13 +33,12 @@ def jsonMaker(html):
         infoDic["items"] = orderItems
         infoDic["totalAmount"] = total
 
-        data["id"] = i+1
+        data["id"] = i + 1
         data["info"] = infoDic
 
         main.append(data)
 
     jsonMaker = json.dumps(main)
 
-    with open(html+".json", "w+") as f:
+    with open(html + ".json", "w+") as f:
         f.write(jsonMaker)
-
