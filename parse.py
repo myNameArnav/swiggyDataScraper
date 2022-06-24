@@ -2,10 +2,10 @@ from bs4 import BeautifulSoup
 from util import twelveTo24, numMonth2strMonth, findStripAndReplace, splitArray
 import datetime
 
+
 def parse(html):
     with open(html) as f:
         html = f.read()
-
 
     soup = BeautifulSoup(html, "lxml")
 
@@ -14,11 +14,19 @@ def parse(html):
     # ? Restaurant Name
 
     rName = []
-    rName = findStripAndReplace(html, "_3h4gz", "\n                                                                ")
+    rName = findStripAndReplace(
+        html,
+        "_3h4gz",
+        "\n                                                                ",
+    )
 
     # ? Restaurant Location
     rLoc = []
-    rLoc = findStripAndReplace(html, "_2haEe", "\n                                                                ")
+    rLoc = findStripAndReplace(
+        html,
+        "_2haEe",
+        "\n                                                                ",
+    )
     # print(len(rLoc))
     # ? Order Number
     oNumber = []
@@ -68,7 +76,11 @@ def parse(html):
     deliveryDT = []
     dDateTime = []
 
-    delDate = findStripAndReplace(html, "_2fkm7", "\n                                                                    ")
+    delDate = findStripAndReplace(
+        html,
+        "_2fkm7",
+        "\n                                                                    ",
+    )
     deliveryDT = splitArray(delDate, " ")
 
     for a in range(len(delDate)):
@@ -92,7 +104,9 @@ def parse(html):
     # ordersTemp = soup.find_all(class_ = "nRCg_")
     orders = splitArray(
         findStripAndReplace(
-            html, "nRCg_", "\n                                                            "
+            html,
+            "nRCg_",
+            "\n                                                            ",
         ),
         ",",
     )
