@@ -1,7 +1,6 @@
-*.txt
-*.csv
-*.html
-cookies.pkl
 __pycache__
-chromedriver.exe
+todo.txt
+arnavData.html
+sanaData.html
+scrape.py
 test.py
