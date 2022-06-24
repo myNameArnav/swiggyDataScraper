@@ -120,6 +120,6 @@ def parse(html):
     # ? Total Paid
     totalAmount = findStripAndReplace(html, "_3Hghg", None)
 
-    returnArray = [rName, rLoc, orderNumber, oDateTime, dDateTime, orders, totalAmount]
+    returnArray = rName, rLoc, orderNumber, oDateTime, dDateTime, orders, totalAmount
 
     return returnArray
