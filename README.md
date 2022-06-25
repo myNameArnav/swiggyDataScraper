@@ -1,3 +1,30 @@
 # Swiggy Data
 
-The main motive of SwiggyData is to present the data taken from a users swiggy previous orders and turn them into [r/dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/) material plots/diagrams/charts.
+Get swiggy order history in a JSON format
+
+```json
+    {
+        "id": 52,
+        "info": {
+            "isDelivered": "Delivered",
+            "orderNumber": "11269035XXXX",
+            "name": "Mad Over Donuts",
+            "place": "Greater Kailash",
+            "orderDateTime": "2021-08-22 12:22:00",
+            "deliveryDateTime": "2021-08-22 13:00:00",
+            "items": [
+                "Dounut1",
+                "Dounut2",
+                "Dounut3"
+            ],
+            "totalAmount": "898"
+        }
+```
+
+Installation
+
+1. Clone repo
+2. ```pip install -r requirements.txt```
+3. [Get HTML](https://github.com/myNameArnav/swiggyData/blob/master/Get%20HTML.md)
+4. Change the argument in ```main.py```, ```jsonMaker("<HTML FILE YOU MADE>")``` (dont add .html, just the name of the file)
+5. Run ```main.py```
