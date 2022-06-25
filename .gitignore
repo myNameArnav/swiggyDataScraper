@@ -1,5 +1,6 @@
 __pycache__
 todo.txt
+*.json
 arnavData.html
 sanaData.html
 scrape.py
