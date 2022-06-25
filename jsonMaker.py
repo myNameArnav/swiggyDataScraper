@@ -2,7 +2,7 @@ from parse import parse
 import json
 
 
-def jsonMaker(html):
+def jsonMaker(html, output=False):
     rName, rPlace, oNumber, oDateTime, dDateTime, orders, totalAmount = parse(
         html + ".html"
     )
@@ -22,14 +22,15 @@ def jsonMaker(html):
         orderItems = orders[i]
         total = totalAmount[i]
 
-        dateTimeDic["orderDateTime"] = str(orderDT)
-        dateTimeDic["deliveryDateTime"] = str(delDT)
+        # dateTimeDic["orderDateTime"] = str(orderDT)
+        # dateTimeDic["deliveryDateTime"] = str(delDT)
 
         infoDic["isDelivered"] = isDelivered
         infoDic["orderNumber"] = orderNumber
         infoDic["name"] = name
         infoDic["place"] = place
-        infoDic["dateTime"] = dateTimeDic
+        infoDic["orderDateTime"] = str(orderDT)
+        infoDic["deliveryDateTime"] = str(delDT)
         infoDic["items"] = orderItems
         infoDic["totalAmount"] = total
 
@@ -40,5 +41,8 @@ def jsonMaker(html):
 
     jsonMaker = json.dumps(main)
 
-    with open(html + ".json", "w+") as f:
-        f.write(jsonMaker)
+    if output == True:
+        with open(html + ".json", "w+") as f:
+            f.write(jsonMaker)
+
+    return jsonMaker
