@@ -1,4 +1,4 @@
-from jsonMaker import jsonMaker
+from util import export
 
 if __name__ == "__main__":
-    jsonMaker("arnavData", output=True)
+    export("csv", "arnavData")
