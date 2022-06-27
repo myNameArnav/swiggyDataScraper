@@ -70,3 +70,14 @@ def splitArray(arr, splitStr):
     for i in range(len(arr)):
         final.append(arr[i].split(splitStr))
     return final
+
+
+def export(csvORjson, html, output=True):
+    if csvORjson == "json":
+        from jsonMaker import jsonMaker
+
+        jsonMaker(html, output)
+    if csvORjson == "csv":
+        from csvMaker import csvMaker
+
+        csvMaker(html)
