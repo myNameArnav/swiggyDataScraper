@@ -11,7 +11,6 @@ def jsonMaker(html, output=False):
     for i in range(len(rName)):
         data = {}
         infoDic = {}
-        dateTimeDic = {}
 
         name = rName[i]
         place = rPlace[i]
@@ -21,9 +20,6 @@ def jsonMaker(html, output=False):
         delDT = dDateTime[i][1]
         orderItems = orders[i]
         total = totalAmount[i]
-
-        # dateTimeDic["orderDateTime"] = str(orderDT)
-        # dateTimeDic["deliveryDateTime"] = str(delDT)
 
         infoDic["isDelivered"] = isDelivered
         infoDic["orderNumber"] = orderNumber
@@ -42,7 +38,7 @@ def jsonMaker(html, output=False):
     jsonMaker = json.dumps(main)
 
     if output == True:
-        with open(html + ".json", "w+") as f:
+        with open(html + ".json", "w") as f:
             f.write(jsonMaker)
 
     return jsonMaker
