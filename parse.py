@@ -29,16 +29,23 @@ def parse(html):
     )
     # print(len(rLoc))
     # ? Order Number
-    orderNumber = []
     oNumber = []
-    oNumber = findStripAndReplace(
-        html,
-        "_2uT6l",
-        "\n                                                                ",
-    )
-    orderNumber = splitArray(oNumber, " ")
+    orderNumber = []
+    orderNumberTemp = soup.find_all(class_="_2uT6l")
+    j = 0
+    for i in orderNumberTemp:
+        oNumber.append((i.text).rstrip())
+        oNumber[j] = oNumber[j].replace(
+            "\n                                                                ", " "
+        )
+        j = j + 1
+    for d in oNumber:
+        orderNumber.append((oNumber[oNumber.index(d)].split(" ")[1])[1:])
 
     # print(orderNumber)
+
+    # * ORDER #139030391698
+    # * ORDER #1147986806
 
     # ? Order Date, Time
     orderDTemp = []
