@@ -2,7 +2,7 @@
 
 Get swiggy order history in a JSON format
 
-### JSON
+#### JSON
 ```json
     {
         "id": 52,
@@ -22,12 +22,12 @@ Get swiggy order history in a JSON format
         }
 ```
 
-### CSV
+#### CSV
 ```csv
 52,Delivered,11269035XXXX,Mad Over Donuts,Greater Kailash,2021-08-22 12:22:00,2021-08-22 13:00:00,['Dounut1', 'Dounut2', 'Dounut3'],898
 ```
 
-Installation
+## Installation
 
 1. Clone repo
 2. ```pip install -r requirements.txt```
