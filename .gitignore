@@ -1,8 +1,10 @@
 __pycache__
-todo.txt
+.DS_Store
+*.txt
 *.json
 *.csv
-arnavData.html
-sanaData.html
+*.prof
+*.html
+profiling.py
 scrape.py
 test.py
