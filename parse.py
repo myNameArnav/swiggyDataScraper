@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from util import twelveTo24, numMonth2strMonth, findStripAndReplace, splitArray
+from util import twelveTo24, strMonth2numMonth, findStripAndReplace, splitArray
 import datetime
 
 
@@ -63,7 +63,7 @@ def parse(html):
             str(orderDateTime[i][-1]),
         )
         year = int(orderDateTime[i][6][:-1])
-        month = numMonth2strMonth(orderDateTime[i][4])
+        month = strMonth2numMonth(orderDateTime[i][4])
         day = int(orderDateTime[i][5][:-1])
         x = datetime.datetime(year, month, day, hour, minute)
         oDateTime.append(x)
@@ -85,8 +85,8 @@ def parse(html):
 
     for a in range(len(delDate)):
         dORc = deliveryDT[a][0]
-        year = int(deliveryDT[a][5][:-1])
-        month = numMonth2strMonth(deliveryDT[a][3])
+        year = int(deliveryDT[a][5][:4])
+        month = strMonth2numMonth(deliveryDT[a][3])
         day = int(deliveryDT[a][4][:-1])
         hour, minute = twelveTo24(
             int(deliveryDT[a][6][:-3]), int(deliveryDT[a][6][3:]), deliveryDT[a][-1]
