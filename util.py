@@ -1,4 +1,8 @@
-def numMonth2strMonth(strMonth):
+def strMonth2numMonth(strMonth):
+    """
+    Takes input as a string(Jan, Feb, Mar) and returns the corresponding number of the month
+    Example: Mar --> 3
+    """
     m2m = {
         "Jan": 1,
         "Feb": 2,
@@ -17,6 +21,9 @@ def numMonth2strMonth(strMonth):
 
 
 def twelveTo24(hour, minute, amORpm):
+    """
+    Converts twelve hour clock time (4:20PM) to 24 hour clock time (1620)
+    """
     if hour <= 12 and minute <= 60:
         if amORpm == "AM":
             if hour == 12:
@@ -33,7 +40,7 @@ def twelveTo24(hour, minute, amORpm):
                 finalHour = hour + 12
                 finalMin = minute
         else:
-            print("Enter AM or PM only")
+            print("Enter AM or PM")
         return [finalHour, finalMin]
     else:
         return "Invalid Time Format"
@@ -73,6 +80,9 @@ def splitArray(arr, splitStr):
 
 
 def export(csvORjson, html, output=True):
+    """
+    Exports html file to json or csv
+    """
     if csvORjson == "json":
         from jsonMaker import jsonMaker
 
