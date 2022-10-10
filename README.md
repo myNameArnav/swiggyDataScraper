@@ -2,7 +2,7 @@
 
 ---
 
-:warning: **Important: Swiggy has changed the orders API on the web, now you can only look at orders dating back to 1 year as opposed to all your orders. But you can still view all your orders in the mobile app.**
+:warning: **Important: Swiggy has changed the orders API on the web, now you can only look at orders dating back to 1 year as opposed to all your orders. But you can still view all your orders in the mobile app.** (as of 10 October 2022)
 
 ---
 
